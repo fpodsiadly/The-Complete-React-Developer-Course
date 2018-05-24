@@ -6,5 +6,7 @@
 
 <style lang="sass" scoped>
 @import '../mq.sass'
+
+
 </style>
 
