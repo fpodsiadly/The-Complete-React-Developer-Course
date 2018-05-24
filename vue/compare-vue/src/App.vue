@@ -12,7 +12,8 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../node_modules/bulma/bulma.sass"
+@import '../node_modules/bulma/bulma.sass'.
+@import 'mq'
 
 #app 
   font-family: "Avenir", Helvetica, Arial, sans-serif
