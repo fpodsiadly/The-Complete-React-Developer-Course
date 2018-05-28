@@ -15,7 +15,7 @@ export default {
     },
     module: {
         rules: [{
-            test: /\jsx?/,
+            test: /\.jsx?/,
             loader: 'babel-loader',
             include: [path.join(__dirname, 'src')]
         }, {
