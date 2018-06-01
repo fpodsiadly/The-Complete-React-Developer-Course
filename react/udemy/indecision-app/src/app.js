@@ -4,11 +4,10 @@ console.log('App.js is running!');
 
 var app = {
     title: 'Indecision App',
-    subtitle: 'This is some info'
+    subtitle: 'Put your life in hands'
 
 };
 
-//JSX - JavaScript XML
 var template = (
     <div>
         <h1>{app.title}</h1>
@@ -19,18 +18,22 @@ var template = (
         </ol>
     </div>
 );
-// Stworzyc a template two with  var jsx expression
 var user = {
     name: 'Filip',
     age: '28',
     location: 'Łódź'
 }
 
+function getLocation(location) {
+    if (location) {
+        return <p>Location: {location}</p>;
+    }
+}
 var templateTwo = (
     <div>
-        <h1>{user.name}</h1>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
         <p>Wiek: {user.age}</p>
-        <p>Miasto: {user.location}</p>
+        {getLocation(user.location)}
     </div>
 );
 
@@ -40,4 +43,4 @@ var templateTwo = (
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

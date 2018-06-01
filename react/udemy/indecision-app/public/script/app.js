@@ -6,11 +6,10 @@ console.log('App.js is running!');
 
 var app = {
     title: 'Indecision App',
-    subtitle: 'This is some info'
+    subtitle: 'Put your life in hands'
 
 };
 
-//JSX - JavaScript XML
 var template = React.createElement(
     'div',
     null,
@@ -39,20 +38,29 @@ var template = React.createElement(
         )
     )
 );
-// Stworzyc a template two with  var jsx expression
 var user = {
     name: 'Filip',
     age: '28',
     location: 'Łódź'
 };
 
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
+    }
+}
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : 'Anonymous'
     ),
     React.createElement(
         'p',
@@ -60,12 +68,7 @@ var templateTwo = React.createElement(
         'Wiek: ',
         user.age
     ),
-    React.createElement(
-        'p',
-        null,
-        'Miasto: ',
-        user.location
-    )
+    getLocation(user.location)
 );
 
 //babel src/app.js --out-file=public/script/app.js --presets=env,react --watch
@@ -74,4 +77,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
