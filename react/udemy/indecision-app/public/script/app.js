@@ -2,14 +2,12 @@
 
 console.log('App.js is running!');
 
-//
-
 var app = {
     title: 'Indecision App',
-    subtitle: 'Put your life in hands'
+    subtitle: 'Put your life in hands',
+    options: ['One', 'Two']
 
 };
-
 var template = React.createElement(
     'div',
     null,
@@ -18,10 +16,15 @@ var template = React.createElement(
         null,
         app.title
     ),
-    React.createElement(
+    app.subtitle && React.createElement(
         'p',
         null,
         app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
     ),
     React.createElement(
         'ol',
@@ -62,7 +65,7 @@ var templateTwo = React.createElement(
         null,
         user.name ? user.name : 'Anonymous'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
         'Wiek: ',
@@ -70,11 +73,7 @@ var templateTwo = React.createElement(
     ),
     getLocation(user.location)
 );
-
 //babel src/app.js --out-file=public/script/app.js --presets=env,react --watch
 //live-server public
-
-
 var appRoot = document.getElementById('app');
-
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
