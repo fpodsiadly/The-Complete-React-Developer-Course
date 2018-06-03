@@ -1,30 +1,38 @@
 'use strict';
 
-/* const square = function (x) {
-    return x * x;
+var add = function add(a, b) {
+    //  console.log(arguments);
+    return a + b;
 };
 
-console.log(square(3));
+console.log(add(55, 1, 1000));
 
- const squareArrow = (x) => {
-    return x * x;
-}; 
+//this
 
-const squareArrow = (x) => x * x;
+var user = {
+    name: 'Filip',
+    cities: ['Łódź', 'Aleksandrów', 'Zgierz'],
+    printPlacesLived: function printPlacesLived() {
+        var _this = this;
 
-console.log(squareArrow(4)); */
-
-var Name = 'Filip Podsiadły';
-
-var getFirstName = function getFirstName(Name) {
-    return Name.split(' ')[0];
+        return this.cities.map(function (city) {
+            return _this.name + ' mieszka w ' + city;
+        });
+    }
 };
+console.log(user.printPlacesLived());
 
-console.log(getFirstName(Name));
+//
 
-var getFirstNameArrow = function getFirstNameArrow(Name) {
-    return Name.split(' ')[0];
+var multiplier = {
+    numbers: [1, 2, 3, 4, 5, 6],
+    multiplyBy: 2,
+    multiply: function multiply() {
+        var _this2 = this;
+
+        return this.numbers.map(function (number) {
+            return _this2.multiplyBy * number;
+        });
+    }
 };
-console.log(getFirstNameArrow(Name));
-
-// firstName = fullName.split(' ')[0];
+console.log(multiplier.multiply());
