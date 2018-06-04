@@ -1,5 +1,8 @@
 "use strict";
 
+//babel src/app.js --out-file=public/script/app.js --presets=env,react --watch
+//live-server public
+
 console.log("App.js is running!");
 
 var app = {
@@ -15,7 +18,7 @@ var onFormSubmit = function onFormSubmit(e) {
 
   if (option) {
     app.options.push(option);
-    e.target.elements.option.value = '';
+    e.target.elements.option.value = "";
     render();
   }
 };
@@ -26,6 +29,8 @@ var onRemoveAll = function onRemoveAll() {
 };
 
 var appRoot = document.getElementById("app");
+var numbers = [55, 101, 1000];
+
 var render = function render() {
   var template = React.createElement(
     "div",
@@ -58,16 +63,13 @@ var render = function render() {
     React.createElement(
       "ol",
       null,
-      React.createElement(
-        "li",
-        null,
-        "item one"
-      ),
-      React.createElement(
-        "li",
-        null,
-        "item two"
-      )
+      app.options.map(function (option) {
+        return React.createElement(
+          "li",
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       "form",

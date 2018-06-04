@@ -1,3 +1,6 @@
+//babel src/app.js --out-file=public/script/app.js --presets=env,react --watch
+//live-server public
+
 console.log("App.js is running!");
 
 const app = {
@@ -6,24 +9,26 @@ const app = {
   options: []
 };
 
-const onFormSubmit = (e) => {
+const onFormSubmit = e => {
   e.preventDefault();
 
   const option = e.target.elements.option.value;
 
   if (option) {
     app.options.push(option);
-    e.target.elements.option.value = '';
+    e.target.elements.option.value = "";
     render();
   }
 };
 
 const onRemoveAll = () => {
-  app.options=[];
+  app.options = [];
   render();
 };
 
 const appRoot = document.getElementById("app");
+const numbers = [55, 101, 1000];
+
 const render = () => {
   const template = (
     <div>
@@ -33,8 +38,7 @@ const render = () => {
       <p>{app.options.length}</p>
       <button onClick={onRemoveAll}>Remove All</button>
       <ol>
-        <li>item one</li>
-        <li>item two</li>
+      {app.options.map(option => <li key={option}>{option}</li>)}
       </ol>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option" />

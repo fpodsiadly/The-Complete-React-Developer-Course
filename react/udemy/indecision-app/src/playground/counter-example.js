@@ -15,8 +15,7 @@ const reset = () => {
   count = 0;
   renderCounterApp();
 };
-//babel src/app.js --out-file=public/script/app.js --presets=env,react --watch
-//live-server public
+
 const appRoot = document.getElementById("app");
 
 const renderCounterApp = () => {
