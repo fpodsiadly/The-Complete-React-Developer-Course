@@ -1,5 +1,3 @@
-//
-
 class Person {
     constructor(name = 'Anonymous', age = 0) {
         this.name = name;
@@ -15,8 +13,46 @@ class Person {
     }
 }
 
-const me = new Person('Filip Podsiadły', 27);
+class Student extends Person {
+    constructor(name, age, major) {
+        super(name, age);
+        this.major = major;
+    }
+    hasMajor() {
+        return !!this.major;
+    }
+    getDescription() {
+        let description = super.getDescription();
+        if (this.hasMajor()) {
+            description += ` Theis major is ${this.major}.`;
+        }
+
+        return description;
+    }
+}
+
+class Traveler extends Person {
+    constructor(name, age, homeLocation) {
+        super(name, age);
+        this.homeLocation = homeLocation;
+    }
+    hasLocation() {
+        return !!this.homeLocation;
+    }
+    getGretting() {
+        let gretting = super.getGretting();
+        if (this.homeLocation) {
+            gretting += ` Im visiting from ${this.homeLocation}.`;
+        }
+        return gretting;
+    }
+}
+
+const me = new Student('Filip Podsiadły', 27, 'Computer Science');
 console.log(me.getDescription());
 
-const other = new Person();
-console.log(other.getDescription());
+const lol = new Traveler('Filip Podsiadły', 27, 'Aleksandrów Łódzki');
+console.log(lol.getGretting());
+
+const other = new Traveler();
+//console.log(other.getGretting());
