@@ -1,7 +1,5 @@
-//import './utils.js';
-
 import React from "react";
-import ReacDOM from "react-dom";
+import ReactDOM from "react-dom";
+import IndecisionApp from "./components/IndecisionApp";
 
-const template = <p>this is jsx from webpack</p>;
-ReacDOM.render(template, document.getElementById("app"));
+ReactDOM.render(<IndecisionApp />, document.getElementById("app"));
