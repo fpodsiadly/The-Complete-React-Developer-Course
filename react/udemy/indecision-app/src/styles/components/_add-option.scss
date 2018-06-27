@@ -1,5 +1,4 @@
 //Add Option Error
-
 .add-option-error {
     color: $off-white;
     font-style: italic;
@@ -8,9 +7,8 @@
 }
 
 .add-option {
-        display: flex;
-        padding: $m-size;
-
+    display: flex;
+    padding: $m-size;
 }
 
 .add-option__input {
