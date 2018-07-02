@@ -4,7 +4,7 @@ import { createStore } from "redux";
 
 const incrementCount = ({ incrementBy = 1 } = {}) => ({
   type: "INCREMENT",
-  incrementBy: incrementBy     // incrementBy: typeof incrementBy === "number" ? incrementBy : 1
+  incrementBy: incrementBy  //incrementBy
 });
 
 const decrementCount = ({ decrementBy = 1 } = {}) => ({
@@ -21,7 +21,9 @@ const setCount = ({ count } = {}) => ({
   count
 });
 
-const store = createStore((state = { count: 0 }, action) => {
+//Reducers
+
+const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case "INCREMENT":
       return {
@@ -42,7 +44,9 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state;
   }
-});
+};
+
+const store = createStore(countReducer);
 
 const subscribe = store.subscribe(() => {
   console.log(store.getState());
